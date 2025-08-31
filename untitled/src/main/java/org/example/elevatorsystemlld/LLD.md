@@ -49,8 +49,8 @@ Building
     List<Floor>
 
 Algorithm:
-    ExternalDispatcherAlgo
-    ElevatorControllerAlgo
+    ExternalDispatcherAlgo - Need to figure out
+    ElevatorControllerAlgo - Use LOOK
 
 
 LOOK Algorithm
