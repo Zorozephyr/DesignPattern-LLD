@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="OSS Public Repository" />
+      <option name="url" value="https://nexus-proxy.neo.corp.amdocs.aws/repository/maven.group" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="oss_main_snapshots" />
       <option name="name" value="OSS Main Snapshots" />
       <option name="url" value="https://nexus-proxy.neo.corp.amdocs.aws/repository/maven.group/" />
@@ -15,6 +20,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="oss_main_snapshots" />
+      <option name="name" value="OSS Main Snapshots" />
+      <option name="url" value="https://nexus-proxy.neo.corp.amdocs.aws/repository/maven.group" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
