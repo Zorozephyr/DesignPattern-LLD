@@ -1,0 +1,190 @@
+# Design Patterns Project - Cursor Rules
+
+## Project Overview
+This is a Java-based educational project demonstrating various design patterns and low-level design (LLD) implementations. The project serves as a learning resource for software design patterns and system design concepts.
+
+## Project Structure
+- `untitled/` - Maven project root
+  - `src/main/java/org/example/` - Main source code
+    - `decoratorpattern/` - Decorator pattern implementation with coffee shop example
+    - `factorypattern/` - Abstract Factory pattern for GUI components
+    - `observerpattern/` - Observer pattern with stock market example
+    - `strategypattern/` - Strategy pattern for discount calculations
+    - `elevatorsystemlld/` - Low-level design of elevator system
+    - `tictactoelld/` - Low-level design of tic-tac-toe game
+  - `pom.xml` - Maven configuration
+  - `target/` - Compiled classes (ignore for edits)
+
+## Technologies
+- **Language**: Java
+- **Build Tool**: Maven
+- **Java Version**: Standard Java (no specific framework dependencies)
+
+## Coding Standards & Conventions
+
+### Java Conventions
+- Use PascalCase for class names (e.g., `CoffeeDecorator`, `ElevatorSystem`)
+- Use camelCase for method and variable names
+- Use UPPER_SNAKE_CASE for constants and enum values
+- Interface names should be descriptive (e.g., `DiscountStrategy`, `ElevatorObserver`)
+- Abstract classes should clearly indicate their purpose
+
+### Design Pattern Implementation Guidelines
+- **Keep examples simple and educational** - Focus on demonstrating the pattern clearly
+- **Use real-world analogies** - Coffee shop for Decorator, GUI for Factory, etc.
+- **Include clear main methods** - Each pattern should have a runnable example
+- **Document pattern benefits** - Include comments explaining why the pattern is useful
+- **Follow SOLID principles** - Especially Single Responsibility and Open/Closed
+
+### Package Organization
+- Each design pattern gets its own package
+- Use descriptive subpackages (e.g., `decorators/`, `factory/`, `observable/`)
+- LLD examples should include model classes in appropriate subpackages
+
+### Code Style
+- Use meaningful variable and method names
+- Keep methods focused and small
+- Include Javadoc comments for public interfaces and complex methods
+- Use proper exception handling where appropriate
+- Prefer composition over inheritance (especially for patterns like Strategy and Decorator)
+
+## Logging & Error Handling Standards
+
+### Exception Handling
+- **Always implement comprehensive error handling** with try-catch blocks for operations that can fail
+- **Use specific exception types** - Create custom exceptions for domain-specific errors (e.g., `InvalidElevatorFloorException`, `GameStateException`)
+- **Fail fast principle** - Validate inputs early and throw meaningful exceptions
+- **Exception chaining** - Use `throw new CustomException("message", cause)` to preserve stack traces
+- **Resource management** - Use try-with-resources for file operations and connections
+- **Graceful degradation** - Provide fallback behavior when possible instead of crashing
+
+### Logging Implementation
+- **Use java.util.logging or SLF4J** for structured logging across all pattern implementations
+- **Log levels hierarchy**:
+  - `SEVERE/ERROR`: System failures, unrecoverable errors
+  - `WARNING/WARN`: Recoverable errors, deprecated usage
+  - `INFO`: Important business logic events, pattern execution flow
+  - `FINE/DEBUG`: Detailed execution flow, method entry/exit
+  - `FINEST/TRACE`: Variable values, loop iterations
+- **Contextual logging** - Include relevant data: `logger.info("Elevator {} moving from floor {} to {}", elevatorId, currentFloor, targetFloor)`
+- **Performance logging** - Log execution times for pattern operations
+- **Security considerations** - Never log sensitive data, sanitize inputs
+
+### Error Propagation & User Experience
+- **Layered error handling** - Catch specific exceptions at appropriate layers
+- **User-friendly messages** - Transform technical exceptions into readable messages
+- **Error codes** - Use consistent error classification system
+- **Logging context preservation** - Maintain correlation IDs across pattern interactions
+- **Recovery strategies** - Implement retry mechanisms where appropriate
+
+## Advanced Code Quality Guidelines
+
+### SOLID Principles Implementation
+- **Single Responsibility** - Each class should have one reason to change
+  - Pattern classes focus solely on their pattern implementation
+  - Separate concerns: business logic, presentation, data access
+- **Open/Closed** - Open for extension, closed for modification
+  - Use interfaces and abstract classes for extensibility
+  - Strategy and Factory patterns exemplify this principle
+- **Liskov Substitution** - Subtypes must be substitutable for base types
+  - Ensure decorator implementations don't break base behavior
+  - Observer implementations should work interchangeably
+- **Interface Segregation** - Many specific interfaces over one general interface
+  - Split large interfaces into focused, cohesive contracts
+- **Dependency Inversion** - Depend on abstractions, not concretions
+  - Use dependency injection where educational value is demonstrated
+
+### Clean Code Practices
+- **Method complexity** - Keep cyclomatic complexity under 10
+- **Class size** - Limit classes to 200-300 lines maximum
+- **Method parameters** - Maximum 3-4 parameters, use parameter objects for more
+- **Magic numbers** - Extract constants with meaningful names
+- **Code duplication** - Follow DRY principle, extract common functionality
+- **Naming conventions**:
+  - Classes: `PascalCase` with clear intent (e.g., `CoffeeDecoratorBase`)
+  - Methods: `camelCase` with verb-noun pattern (e.g., `calculateDiscount()`)
+  - Variables: `camelCase` with descriptive names (e.g., `currentElevatorFloor`)
+  - Constants: `UPPER_SNAKE_CASE` (e.g., `MAX_ELEVATOR_CAPACITY`)
+
+### Documentation & Comments
+- **Javadoc standards**:
+  - All public classes, interfaces, and methods must have Javadoc
+  - Include `@param`, `@return`, `@throws` documentation
+  - Provide usage examples for complex patterns
+  - Document design decisions and trade-offs
+- **Inline comments**:
+  - Explain "why" not "what" - focus on business logic and design decisions
+  - Comment complex algorithms and pattern-specific implementations
+  - Use TODO comments with assignee and date for future improvements
+- **README documentation**:
+  - Each pattern should have usage examples
+  - Include UML diagrams where beneficial
+  - Explain when to use each pattern and alternatives
+
+### Input Validation & Type Safety
+- **Defensive programming** - Validate all inputs at public method boundaries
+- **Null safety** - Use Optional<T> for methods that might return null
+- **Range validation** - Check numeric inputs against valid ranges
+- **State validation** - Ensure object state is valid before operations
+- **Builder pattern** - Use for complex object construction with validation
+- **Immutability** - Prefer immutable objects where possible, especially for value objects
+
+### Testing & Quality Assurance
+- **Unit test coverage** - Aim for 80%+ coverage on business logic
+- **Test naming** - Use descriptive names: `should_ThrowException_When_FloorIsInvalid()`
+- **Test organization** - Follow AAA pattern (Arrange, Act, Assert)
+- **Mock usage** - Mock external dependencies, test pattern interactions
+- **Integration tests** - Test pattern combinations and system interactions
+- **Performance tests** - Benchmark pattern implementations where relevant
+
+### Pattern-Specific Quality Guidelines
+- **Decorator Pattern** - Ensure decorators don't alter core behavior unexpectedly
+- **Factory Pattern** - Validate factory inputs and provide clear error messages
+- **Observer Pattern** - Handle observer failures gracefully, avoid memory leaks
+- **Strategy Pattern** - Validate strategy selection and provide default strategies
+- **LLD Systems** - Model real-world constraints and edge cases appropriately
+
+## AI Assistant Instructions
+
+### When Adding New Patterns
+1. Create a new package under `org.example`
+2. Include a main class demonstrating the pattern
+3. Use clear, educational examples that show real-world applicability
+4. Include comments explaining the pattern's intent and structure
+5. Follow the existing project structure and naming conventions
+
+### When Modifying Existing Code
+- Preserve the educational nature of examples
+- Maintain consistency with existing implementations
+- Ensure all examples remain runnable
+- Keep the focus on pattern demonstration rather than complex business logic
+
+### For Low-Level Design (LLD) Examples
+- Include comprehensive class diagrams in markdown when possible
+- Focus on object-oriented design principles
+- Show proper relationships between classes (composition, inheritance, etc.)
+- Include test scenarios or main methods to demonstrate functionality
+
+### Code Quality
+- Prioritize readability and educational value over performance optimization
+- Use design patterns appropriately - don't force patterns where they don't fit
+- Include error handling where it adds educational value
+- Keep dependencies minimal - this is a learning project
+
+### Documentation
+- Update README.md when adding significant new patterns
+- Include inline comments explaining pattern-specific concepts
+- For LLD examples, include markdown files explaining the design decisions
+
+## Build and Run Instructions
+- Use `mvn compile` to build the project
+- Use `mvn exec:java -Dexec.mainClass="org.example.PatternName.Main"` to run specific examples
+- Each pattern implementation should be independently runnable
+
+## Learning Objectives
+This project aims to demonstrate:
+- Gang of Four (GoF) design patterns
+- Low-level system design concepts
+- Object-oriented design principles
+- Clean code practices in Java
+- Real-world applications of design patterns
