@@ -21,7 +21,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>org.example.chainofresponsibilitypattern.Main</mainClass>
+                    <mainClass>org.example.designpatterns.chainofresponsibilitypattern.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
