@@ -1,15 +1,25 @@
 package org.example.lowleveldesignexamples.bookmyshowlld;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Screen {
-    Map<Integer,Seats> seatsMap;
+    int screenId;
+    List<Seat> seats = new ArrayList<>();
 
-    public Screen(Map<Integer, Seats> seatsMap) {
-        this.seatsMap = seatsMap;
+    public int getScreenId(){
+        return screenId;
     }
 
-    public Map<Integer, Seats> getSeatsMap() {
-        return seatsMap;
+    public void setScreenId(int screenId) {
+        this.screenId = screenId;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
+
+    public List<Seat> getSeats(){
+        return seats;
     }
 }
